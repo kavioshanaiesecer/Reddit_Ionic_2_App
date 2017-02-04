@@ -9,3 +9,6 @@ To setup this appication on you machine ->
 After downloading this package using command prompt run following command in the application directory
 *ionic serve
 
+
+
+
