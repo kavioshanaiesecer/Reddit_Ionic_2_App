@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {RedditsSevice} from '../../app/services/reddits.service';
 import { NavController } from 'ionic-angular';
+import {DetailsPage} from '../details/details';
 
 @Component({
   selector: 'reddits',
@@ -24,5 +25,12 @@ export class RedditsPage {
       this.items=response.data.children;
     });
   }
+
+  viewItem(item){
+    this.navCtrl.push(DetailsPage, {
+      item:item
+    });
+  }
+
 
 }
