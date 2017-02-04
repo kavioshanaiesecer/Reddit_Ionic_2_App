@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {RedditsSevice} from '../../app/services/reddits.service';
 import { NavController } from 'ionic-angular';
-import {DetailsPage} from '../details/details';
+import {RedditsPage} from '../reddits/reddits';
 
 @Component({
   selector: 'settings',
@@ -17,8 +17,30 @@ export class SettingsPage {
 
 
 getDefaults(){
+  if(localStorage.getItem('catergory')!=null){
+    this.catergory = localStorage.getItem('catergory');
+  }
+  else{
   this.catergory="sports";
-  this.limit = 10;
+  }
+
+   if(localStorage.getItem('limit')!=null){
+    this.limit = localStorage.getItem('limit');
+  }
+  else{
+  this.limit=10;
+  }
+}
+
+// getDefaults(){
+//   this.catergory = localStorage.getItem('catergory');
+//   this.limit = localStorage.getItem('limit');
+// }
+
+setDefaults(){
+  localStorage.setItem('catergory',this.catergory);
+  localStorage.setItem('limit',this.limit);
+  this.navCtrl.push(RedditsPage);
 }
 
 }

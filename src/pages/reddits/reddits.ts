@@ -21,9 +21,26 @@ export class RedditsPage {
   }
 
 getDefaults(){
+  if(localStorage.getItem('catergory')!=null){
+    this.catergory = localStorage.getItem('catergory');
+  }
+  else{
   this.catergory="sports";
-  this.limit = 10;
+  }
+
+   if(localStorage.getItem('limit')!=null){
+    this.limit = localStorage.getItem('limit');
+  }
+  else{
+  this.limit=10;
+  }
 }
+
+// getDefaults(){
+//   this.catergory = localStorage.getItem('catergory');
+//   this.limit = localStorage.getItem('limit');
+// }
+
 
   getPosts(catergory,limit){
     this.redditService.getPosts(catergory,limit).subscribe(response => {
